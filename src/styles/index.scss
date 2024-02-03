@@ -1,5 +1,79 @@
-$red: red;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+$font-header: 15px;
+$main-color: #A94438;
+$words: #E4DEBE;
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
 
 body {
-    background-color: $red;
+    font-family: 'Press Start 2P';
+}
+
+header {
+    display: flex !important;
+    justify-content: space-around;
+    align-items: center;
+    color: $words;
+    padding: 15px;
+    background-color: $main-color;
+
+    h5 {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+            font-size: $font-header;
+        }
+    }
+}
+
+.center {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-text {
+    padding: 15px;
+    text-align: center;
+    margin-top: 14px;
+
+    .main-text-input {
+        padding: 15px;
+        width: 100%;
+        /* Ajuste del ancho al 100% */
+        max-width: 500px;
+        /* Establecer un ancho máximo si es necesario */
+        border-radius: 10px;
+        outline: none;
+    }
+
+    button {
+        margin-left: 10px;
+        /* Añadido espacio arriba del botón para mejorar la apariencia */
+    }
+
+    p {
+        margin-top: 15px;
+    }
+}
+
+form {
+    display: flex;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
