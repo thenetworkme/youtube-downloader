@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/index.css">
+<link rel="stylesheet" href="index.css">
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
     <title>Document</title>
 </head>
@@ -19,12 +19,14 @@
         <section class="main-text">
             <h2 class="nes-text is-error">YouTube Video Downloader</h2>
             <p>download online videos, convert online video to mp3 for free</p>
-            <form action="">
-                <input type="text" placeholder="Paste video link here" class="nes-input is-error main-text-input">
-                <button class="nes-btn is-success nes-pointer main-text-btn">Download</button>
+            <form action="" id="downloader-form">
+                <input type="text" id="link" name="link" placeholder="Paste video link here" class="nes-input is-error main-text-input">
+                <button id="sendLink" class="nes-btn is-success nes-pointer main-text-btn" type="submit">Download</button>
             </form>
+            <a href="/api/downloader">Link de descarga</a>
         </section>
 </div>
     </main>
+    <script src="downloader.js"></script>
 </body>
 </html>
