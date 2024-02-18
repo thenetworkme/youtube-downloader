@@ -67,3 +67,9 @@ form {
   flex-wrap: wrap;
   justify-content: center;
 }/*# sourceMappingURL=index.css.map */
+
+.video-info{
+  background-color: #d4a7a2;
+  width: 100vh;
+  height: 300px;
+}

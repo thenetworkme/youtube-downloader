@@ -10,11 +10,17 @@ document.getElementById('downloader-form').addEventListener("submit", async (e)=
             link: e.target.children.link.value,
         })
     })
-    if(!res.ok){
-        return console.log('Error!!!')
-    } else {
-        console.log('working')
-    }
+  
+    // if(!res.ok){
+    //     console.log('Error!!!')
+    //     return;
+    // } 
+    const videoInfo  = await res.json()
+    console.log(videoInfo)
+        // const videoInfoContainer = document.getElementById('video-info');
+        // videoInfoContainer.innerHTML =`<p><strong>Titulo:</strong> pofof</p>`
+
     
 
 })
+

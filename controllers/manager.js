@@ -4,6 +4,7 @@ const os = require('os')
 const ytdl = require('ytdl-core')
 const contentDisposition = require('content-disposition')
 
+
 async function videoDownloader(req, res) {
 try {
 
@@ -11,28 +12,27 @@ try {
     let info = await ytdl.getBasicInfo(video)
     let title = info.videoDetails.title
 
-   res.setHeader('Content-Type', 'video/mp4');
-    res.setHeader('Content-Disposition', contentDisposition(`${title}.mp4`), { type: 'attachment'});
+//    res.setHeader('Content-Type', 'video/mp4');
+//     res.setHeader('Content-Disposition', contentDisposition(`${title}.mp4`), { type: 'attachment'});
     
 
     const downloadFolderPath = path.join(os.homedir(), 'Downloads')
     const outputPath = path.join(downloadFolderPath, `${title}.mp4`)
 
      let downloader = ytdl(video);
+     const fileStream = fs.createWriteStream(outputPath)
+     downloader.pipe(fileStream);
 
+        downloader.on('end', () => {
+            res.send('¡La descarga se ha completado exitosamente!');
+            console.log('¡La descarga se ha completado exitosamente!')
+        });
 
+        downloader.on('error', (error) => {
+            console.error('Error al descargar el video:', error);
+            res.status(500).send('Ocurrió un error al descargar el video.');
+        });
 
-     downloader.pipe(res)
-     
-     downloader.on('end', () => {
-   
-        console.log('¡La descarga se ha completado exitosamente!')
-    });
-
-    downloader.on('error', (error) => {
-        console.error('Error al descargar el video:', error);
-
-    });
 
 } catch(err) {
     console.log(err)
